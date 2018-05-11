@@ -1,0 +1,2 @@
+# d3-meteorite-visualisation
+for https://www.freecodecamp.org/challenges/map-data-across-the-globe
