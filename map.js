@@ -1,9 +1,15 @@
 var w = 1045;
 var h = 548;
 
+d3.select("#main").style("width", w + "px")
+
 var svg = d3.select("#chart")
   .attr("width", w)
-  .attr("height", h);
+  .attr("height", h)
+  .call(d3.zoom().on("zoom", function(){
+    svg.attr("transform", d3.event.transform)
+  }))
+  .append("g")
 
 var projection = d3.geoEquirectangular()
   .center([0, 5])
