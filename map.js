@@ -1,28 +1,29 @@
-//geoJSOn via https://geojson-maps.ash.ms/
-d3.json("https://raw.githubusercontent.com/J-Sanderson/d3-meteorite-visualisation/master/custom.geo.json", function(error, data) {
+var w = 1045;
+var h = 548;
+
+var svg = d3.select("#chart")
+  .attr("width", w)
+  .attr("height", h);
+
+var projection = d3.geoEquirectangular()
+  .center([0, 5])
+  .scale(180) //180
+  .rotate([0, 0])
+
+var path = d3.geoPath(projection);
+
+d3.json("https://giottojs.org/geo/world-110m.json", function(error, world) {
   
   if (error) throw error;
   
-  var w = 800;
-  var h = 400
-
-  var svg = d3.select("#chart")
-    .attr("width", "100%")
-    .attr("height", h)
+  var countries = topojson.feature(world, world.objects.countries).features;
+  //var neighbors = topojson.neighbors(world.objects.countries.geometries);
   
-  var eqProjection = d3.geoEquirectangular()
-    .scale( 190000 )
-    .center([0, 0])
-    .translate(w / 2, h / 2);
-  
-  var geoPath = d3.geoPath()
-    .projection(eqProjection)
-  
-  svg.selectAll("path")
-    .data(data.features)
+  svg.selectAll(".country")
+    .data(countries)
     .enter()
-    .append("path")
-    .attr("fill", "red")
-    .attr("d", geoPath);
+    .insert("path")
+    .attr("class", "country")
+    .attr("d", path)
   
 });

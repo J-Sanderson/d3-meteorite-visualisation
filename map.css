@@ -1,7 +1,14 @@
 :root {
   --background: #ffffff;
+  --land: #c0c0c0;
+  --border: #3c3c3c;
 }
 
 #chart {
-  border: 1px solid black;
+  border: 1px solid var(--border);
+}
+
+.country {
+  fill: var(--land);
+  stroke: var(--border);
 }
