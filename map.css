@@ -2,13 +2,27 @@
   --background: #ffffff;
   --land: #c0c0c0;
   --border: #3c3c3c;
+  --sea: #d8ffff;
+}
+
+html, body {
+  margin: 0px;
+  width: 100%;
+  height: 100%
+}
+
+#main {
+  margin-left:auto;
+  margin-right:auto;
 }
 
 #chart {
   border: 1px solid var(--border);
+  background-color: var(--sea);
 }
 
 .country {
   fill: var(--land);
   stroke: var(--border);
+  stroke-width: 0.5;
 }
