@@ -1,19 +1,24 @@
 :root {
-  --background: #ffffff;
-  --land: #c0c0c0;
-  --border: #3c3c3c;
-  --sea: #d8ffff;
+  --background: #fffaf0;
+  --land: #77dd77;
+  --border: #253529;
+  --sea: #a6e7ff;
+  --point: #8b4513;
 }
 
 html, body {
   margin: 0px;
   width: 100%;
-  height: 100%
+  height: 100%;
+  background-color: var(--background);
 }
 
 #main {
   margin-left:auto;
   margin-right:auto;
+  text-align:center;
+  color: var(--border);
+  font-family: 'IM Fell French Canon', serif;
 }
 
 #chart {
@@ -25,4 +30,25 @@ html, body {
   fill: var(--land);
   stroke: var(--border);
   stroke-width: 0.5;
+}
+
+.meteorite {
+  fill: var(--point);
+  stroke: var(--border);
+  stroke-width: 0.25;
+  opacity: 0.6
+}
+
+.d3-tip {	
+  position: absolute;			
+  text-align: center;				
+  padding: 5px;					
+  background: var(--background);
+  font-family: sans-serif;
+  font-size: 13px;
+  border: 1px solid var(--border);
+}
+
+.d3-tip p {
+  margin: 5px
 }
